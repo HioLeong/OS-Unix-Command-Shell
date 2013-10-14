@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <regex.h>
-#include <string.h>
 #include "init.h"
 
 char home[512];
@@ -18,9 +15,9 @@ int getProfile() {
 	}
 
 	while (fgets(line, 80, profile) != NULL) {
+
 		printf("%s\n", line);
 	}
-
 	return 0;
 }
 
@@ -30,15 +27,14 @@ char* getPath() {
 char* getHome() {
 }
 
-char* getOption(char* name) {
-	regex_t regex;
-	int reti;
-	char msgbuf[100];
-	char* 
+int getOption(char* name, char* input){
+
+	char* reti = strpbrk(name,input);
 
 
-	reti = regexcomp(&regex, "HOME=.*",0);
-	if (reti) {
-		exit(1);
+	if (NULL != reti) {
+		return 1;
+	} else {
+		return 0;
 	}
 }

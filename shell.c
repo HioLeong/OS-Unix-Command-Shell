@@ -1,3 +1,4 @@
+#include <string.h>
 #include "shell.h"
 #include "input.h"
 #include "init.h"
@@ -20,6 +21,7 @@ void shell() {
 }
 
 void init() {
-	getProfile();
+	char* sub = strpbrk("test", "es");
+	printf("%s\n", sub);
 }
 

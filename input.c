@@ -6,5 +6,3 @@ char* getInput() {
 	return word;
 }
 
-char* getProfile() {
-}
