@@ -5,3 +5,6 @@ char* getInput() {
 	fgets(word, 512, stdin);
 	return word;
 }
+
+char* getProfile() {
+}

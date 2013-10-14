@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <regex.h>
+#include <string.h>
 #include "init.h"
 
 char home[512];
@@ -23,10 +25,20 @@ int getProfile() {
 }
 
 char* getPath() {
-	
 }
 
 char* getHome() {
 }
 
+char* getOption(char* name) {
+	regex_t regex;
+	int reti;
+	char msgbuf[100];
+	char* 
 
+
+	reti = regexcomp(&regex, "HOME=.*",0);
+	if (reti) {
+		exit(1);
+	}
+}
