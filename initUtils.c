@@ -51,7 +51,6 @@ void getSearchPaths(char* strings[]) {
 	char *pch = strtok(path, ":");
 	while (NULL != pch) {
 		strings[i++] = pch;
-		printf("%d. %s\n", i-1, strings[i - 1]);
 		pch = strtok(NULL, ":");
 	}
 }

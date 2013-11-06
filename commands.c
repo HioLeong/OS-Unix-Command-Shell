@@ -7,8 +7,11 @@ void cd() {
 
 void execProcess(const char *file, const char* argv[]) {
 	int i = 0;
-	char* searchPaths[12]; // TODO: change to dynamic
+	char* searchPaths[12]; 
 	getSearchPaths(searchPaths);
+	for (i = 0; i < 3; i++) {
+		printf("%s\n", searchPaths[i]);
+	}
 }
 
 
