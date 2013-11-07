@@ -5,12 +5,10 @@ void getInputTokens(char *argv[]) {
 
 	char buffer[512];
 	char *inputs = getInput(buffer);
-	printf("%s\n", inputs);
 	char *pch = strtok(inputs, " ");
 
 	while (NULL != pch) {
-		argv[i++] = pch;	
-		printf("%s\n", pch);
+		argv[i++] = pch;
 		pch = strtok(NULL, " ");
 	}
 }

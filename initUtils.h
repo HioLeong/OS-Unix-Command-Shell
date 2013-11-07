@@ -4,7 +4,7 @@
 
 int getProfileVariables();
 void getPath();
-void getHome();
+char* getHome();
 int getOption();
 void getSearchPaths(char* strings[]);
 

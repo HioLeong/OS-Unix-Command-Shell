@@ -5,6 +5,7 @@
 #include "input.h"
 #include "initUtils.h"
 #include "commands.h"
+#include "utils.h"
 
 void shell();
 void init();

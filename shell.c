@@ -1,16 +1,12 @@
 #include "shell.h"
+#include <assert.h>
 
 int main() {
-	//shell();
-	printf("> ");
-	//char buffer[512];
-	//char* input = getInput(buffer);
-	//printf("%s\n" , input);
-
-	char* values[15];
-	getInputTokens(values);
-
-
+	init();
+	while (1) {
+		printf("%s > ", getHome());
+		exec();
+	}
 	return 1;
 }
 
@@ -32,8 +28,5 @@ void init() {
 	char* temp;
 	char* strings[14];
 	getProfileVariables(); // update the home and path environment variables
-	const char* paramList[] = {"a","b"};
-	const char* command = "ls";
-	exec(command, paramList);
 }
 

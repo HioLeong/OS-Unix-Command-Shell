@@ -1,25 +1,50 @@
 #include "commands.h"
-#include "initUtils.h"
 
-void cd() {
-	//printf("Change dir\n");
+int processExists(char* file, char* searchPaths[]) {
+	return 1;
 }
 
-void execProcess(const char *file, const char* argv[]) {
-	int i = 0;
+void cd(char *argv[]) {
+	char *requested = argv[1];
+	char *home = getHome();
+	char newDir[80];
+
+	strcat(newDir, home);
+	strcat(newDir, "/");
+	strcat(newDir, requested);
+	
+	if (pathExists(newDir) == 1) {
+		setHome(newDir);
+	} else {
+		printf("No such file or directory\n");
+	}
+}
+
+void execProcess(char *file,  char* argv[]) {
 	char* searchPaths[12]; 
 	getSearchPaths(searchPaths);
-	for (i = 0; i < 3; i++) {
-		printf("%s\n", searchPaths[i]);
-	}
 }
 
+void exec() {
 
-void exec(const char *file, const char *argv[]) {
-	char cdCommand[] = "cd";
-	if (strcmp(cdCommand, file) == 0) {
-		cd();
+	char buffer[512];
+	char *inputs = getInput(buffer);
+
+	int i = 0;
+	char *argv[12];
+
+	char *pch = strtok(inputs, " ");
+	while (NULL != pch) {
+		argv[i++] = pch;
+		pch = strtok(NULL, " ");
+	}
+
+	char *cdCommand = "cd";
+	if (strcmp(argv[0], cdCommand) == 0) {
+		cd(argv);
 	} else {
-		execProcess(file, argv);
+		printf("process");
 	}
 }
+
+

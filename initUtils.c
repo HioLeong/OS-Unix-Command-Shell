@@ -1,11 +1,11 @@
 #include "initUtils.h"
 
-char home[80];
-char path[80];
+char home[512];
+char path[512];
 
 int getProfileVariables() {
 	FILE *profile;
-	char line[80];
+	char line[512];
 	int reti;
 
 	profile = fopen("profile","rt");
@@ -15,7 +15,7 @@ int getProfileVariables() {
 		return -1;
 	}
 
-	while (fgets(line, 80, profile) != NULL) {
+	while (fgets(line, 512, profile) != NULL) {
 		reti = updateOption("HOME", line); // returns 1 
 		reti = updateOption("PATH", line);
 	}
@@ -39,6 +39,10 @@ void setPath(char* inputPath) {
 void setHome(char* inputHome) {
 	strcpy(home, inputHome);
 	home[strlen(inputHome) - 1] = '\0';
+}
+
+char* getHome() {
+	return home;
 }
 
 void getSearchPaths(char* strings[]) {
