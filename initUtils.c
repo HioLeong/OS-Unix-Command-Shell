@@ -3,6 +3,7 @@
 char *paths[12];
 char home[512];
 char path[512];
+char defaultHome[512];
 
 int getProfileVariables() {
 	FILE *profile;
@@ -49,6 +50,10 @@ void setPath(char* inputPath) {
 	}
 }
 
+void resetDefaultHome() {
+	strcpy(home, defaultHome);
+}
+
 void setHome(char* inputHome) {
 	strcpy(home, inputHome);
 	home[strlen(inputHome) - 1] = '\0';
@@ -82,6 +87,7 @@ int updateOption(char* name, char* input){
 				char *pch = strtok(input,"=");
 				pch = strtok(NULL,"=");
 				setHome(pch);
+				strcpy(defaultHome, pch);	
 		} else if (name == "PATH") {
 				char *pch = strtok(input,"=");
 				pch = strtok(NULL,"=");
@@ -94,3 +100,4 @@ int updateOption(char* name, char* input){
 		return 0;
 	}
 }
+

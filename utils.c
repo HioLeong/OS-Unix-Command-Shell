@@ -1,7 +1,6 @@
 #include "utils.h"
 
 int pathExists(char *path) {
-	printf("checking path: %s\n", path);
 	DIR *dir = opendir(path);
 	if (NULL != dir) {
 		closedir(dir);

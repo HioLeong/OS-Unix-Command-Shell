@@ -3,6 +3,7 @@
 
 int getProfileVariables();
 void getPath();
+void resetDefaultHome();
 char* getHome();
 int getOption();
 char** getSearchPaths();

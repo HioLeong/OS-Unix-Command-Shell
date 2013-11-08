@@ -76,11 +76,14 @@ void exec() {
 
 
 	char *cdCommand = "cd";
+	char *homeChange = "$HOME=";
+	char *pathChange = "$PATH=";
 	if (strcmp(argv[0], cdCommand) == 0) {
 		cd(argv);
+	} else if (strcmp(argv[0], homeChange, 6)) {
+		printf("changing home\n");
 	} else {
 		int i = 0;
-		//TODO: Define maximum paths
 
 		char **searchPaths = getSearchPaths();
 		char procPath[512];
