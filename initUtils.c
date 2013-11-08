@@ -1,5 +1,6 @@
 #include "initUtils.h"
 
+char *paths[12];
 char home[512];
 char path[512];
 
@@ -32,8 +33,20 @@ void printHome() {
 }
 
 void setPath(char* inputPath) {
-	path[strlen(path) ] = '\0';
 	strcpy(path, inputPath);
+	path[strlen(inputPath) - 1] = '\0';
+
+	int i = 0;
+	for (i = 0; i < 12; i++) {
+		paths[i] = "";
+	}
+
+	i = 0;
+	char *pch = strtok(path, ":");
+	while (NULL != pch) {
+		paths[i++] = pch;
+		pch = strtok(NULL,":");
+	}
 }
 
 void setHome(char* inputHome) {
@@ -41,11 +54,12 @@ void setHome(char* inputHome) {
 	home[strlen(inputHome) - 1] = '\0';
 }
 
-char* getHome() {
+char *getHome() {
 	return home;
 }
 
-void getSearchPaths(char* strings[]) {
+char** getSearchPaths() {
+	/*
 	if (NULL == strings) {
 		printf("error");
 		return;
@@ -53,10 +67,13 @@ void getSearchPaths(char* strings[]) {
 
 	int i = 0;
 	char *pch = strtok(path, ":");
+	printf("%s\n", pch);
 	while (NULL != pch) {
 		strings[i++] = pch;
 		pch = strtok(NULL, ":");
 	}
+	*/
+	return paths;
 }
 
 int updateOption(char* name, char* input){
